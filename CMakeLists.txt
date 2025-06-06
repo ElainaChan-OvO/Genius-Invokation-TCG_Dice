@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
-set(QTXLSX_ROOT "D:/Qt/Qt5/5.15.2/mingw81_64")
 
 set(CMAKE_PREFIX_PATH "D:/Qt/Qt5/5.15.2/mingw81_64/lib/cmake")
 
@@ -21,6 +20,5 @@ target_link_libraries(${PROJECT_NAME}
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
-        "${QTXLSX_ROOT}/lib/libQt5Xlsx.a"
 )
 
