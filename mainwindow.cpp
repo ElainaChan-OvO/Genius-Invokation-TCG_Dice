@@ -10,22 +10,7 @@ int player2[8];
 
 mainwindow::mainwindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainwindow) {
     ui->setupUi(this);
-    ui->player1_1->setText("");
-    ui->player1_2->setText("");
-    ui->player1_3->setText("");
-    ui->player1_4->setText("");
-    ui->player1_5->setText("");
-    ui->player1_6->setText("");
-    ui->player1_7->setText("");
-    ui->player1_8->setText("");
-    ui->player2_1->setText("");
-    ui->player2_2->setText("");
-    ui->player2_3->setText("");
-    ui->player2_4->setText("");
-    ui->player2_5->setText("");
-    ui->player2_6->setText("");
-    ui->player2_7->setText("");
-    ui->player2_8->setText("");
+    ResetUI();
     ui->Warning1->setText("");
     ui->Warning2->setText("");
     ui->p1c1b->setText("10");
@@ -42,41 +27,7 @@ mainwindow::~mainwindow() {
     delete ui;
 }
 
-void mainwindow::on_player1_begin_clicked() {
-    QString str[9] = {"冰", "水", "火", "雷", "岩", "草", "风", "万能", ""};
-    for (int i = 0; i <= 7; i++) {
-        int randomNum = dis(gen);
-        player1[i] = randomNum;
-    }
-    std::sort(std::begin(player1), std::end(player1));
-    ui->player1_1->setText("1: " + str[player1[0]]);
-    ui->player1_2->setText("2: " + str[player1[1]]);
-    ui->player1_3->setText("3: " + str[player1[2]]);
-    ui->player1_4->setText("4: " + str[player1[3]]);
-    ui->player1_5->setText("5: " + str[player1[4]]);
-    ui->player1_6->setText("6: " + str[player1[5]]);
-    ui->player1_7->setText("7: " + str[player1[6]]);
-    ui->player1_8->setText("8: " + str[player1[7]]);
-}
-
-void mainwindow::on_player2_begin_clicked() {
-    QString str[9] = {"冰", "水", "火", "雷", "岩", "草", "风", "万能", ""};
-    for (int i = 0; i <= 7; i++) {
-        int randomNum = dis(gen);
-        player2[i] = randomNum;
-    }
-    std::sort(std::begin(player2), std::end(player2));
-    ui->player2_1->setText("1: " + str[player2[0]]);
-    ui->player2_2->setText("2: " + str[player2[1]]);
-    ui->player2_3->setText("3: " + str[player2[2]]);
-    ui->player2_4->setText("4: " + str[player2[3]]);
-    ui->player2_5->setText("5: " + str[player2[4]]);
-    ui->player2_6->setText("6: " + str[player2[5]]);
-    ui->player2_7->setText("7: " + str[player2[6]]);
-    ui->player2_8->setText("8: " + str[player2[7]]);
-}
-
-void mainwindow::on_clearButton_clicked() {
+void mainwindow::ResetUI() {
     ui->player1_1->setText("");
     ui->player1_2->setText("");
     ui->player1_3->setText("");
@@ -95,17 +46,8 @@ void mainwindow::on_clearButton_clicked() {
     ui->player2_8->setText("");
 }
 
-void mainwindow::on_useButton1_clicked() {
-    QString Text = ui->use1->text();
+void mainwindow::Updateplayer1UI() {
     QString str[9] = {"冰", "水", "火", "雷", "岩", "草", "风", "万能", ""};
-    if (!(Text.toInt() <= 8 && Text.toInt() >= 1)) {
-        ui->Warning1->setText("请输入正确的编号！");
-        return;
-    }
-    ui->Warning1->setText("");
-    player1[Text.toInt() - 1] = 8;
-    std::sort(std::begin(player1), std::end(player1));
-    ui->use1->setText("");
     ui->player1_1->setText("1: " + str[player1[0]]);
     ui->player1_2->setText("2: " + str[player1[1]]);
     ui->player1_3->setText("3: " + str[player1[2]]);
@@ -116,17 +58,8 @@ void mainwindow::on_useButton1_clicked() {
     ui->player1_8->setText("8: " + str[player1[7]]);
 }
 
-void mainwindow::on_useButton2_clicked() {
-    QString Text = ui->use2->text();
+void mainwindow::Updateplayer2UI() {
     QString str[9] = {"冰", "水", "火", "雷", "岩", "草", "风", "万能", ""};
-    if (!(Text.toInt() <= 8 && Text.toInt() >= 1)) {
-        ui->Warning2->setText("请输入正确的编号！");
-        return;
-    }
-    ui->Warning2->setText("");
-    player2[Text.toInt() - 1] = 8;
-    std::sort(std::begin(player2), std::end(player2));
-    ui->use2->setText("");
     ui->player2_1->setText("1: " + str[player2[0]]);
     ui->player2_2->setText("2: " + str[player2[1]]);
     ui->player2_3->setText("3: " + str[player2[2]]);
@@ -137,9 +70,56 @@ void mainwindow::on_useButton2_clicked() {
     ui->player2_8->setText("8: " + str[player2[7]]);
 }
 
+void mainwindow::on_player1_begin_clicked() {
+    for (int i = 0; i <= 7; i++) {
+        int randomNum = dis(gen);
+        player1[i] = randomNum;
+    }
+    std::sort(std::begin(player1), std::end(player1));
+    Updateplayer1UI();
+}
+
+void mainwindow::on_player2_begin_clicked() {
+    for (int i = 0; i <= 7; i++) {
+        int randomNum = dis(gen);
+        player2[i] = randomNum;
+    }
+    std::sort(std::begin(player2), std::end(player2));
+    Updateplayer2UI();
+}
+
+void mainwindow::on_clearButton_clicked() {
+    ResetUI();
+}
+
+void mainwindow::on_useButton1_clicked() {
+    QString Text = ui->use1->text();
+    if (!(Text.toInt() <= 8 && Text.toInt() >= 1)) {
+        ui->Warning1->setText("请输入正确的编号！");
+        return;
+    }
+    ui->Warning1->setText("");
+    player1[Text.toInt() - 1] = 8;
+    std::sort(std::begin(player1), std::end(player1));
+    ui->use1->setText("");
+    Updateplayer1UI();
+}
+
+void mainwindow::on_useButton2_clicked() {
+    QString Text = ui->use2->text();
+    if (!(Text.toInt() <= 8 && Text.toInt() >= 1)) {
+        ui->Warning2->setText("请输入正确的编号！");
+        return;
+    }
+    ui->Warning2->setText("");
+    player2[Text.toInt() - 1] = 8;
+    std::sort(std::begin(player2), std::end(player2));
+    ui->use2->setText("");
+    Updateplayer2UI();
+}
+
 void mainwindow::on_RebootButton1_clicked() {
     QString Text = ui->use1->text();
-    QString str[9] = {"冰", "水", "火", "雷", "岩", "草", "风", "万能", ""};
     if (!(Text.toInt() <= 8 && Text.toInt() >= 1)) {
         ui->Warning1->setText("请输入正确的编号！");
         return;
@@ -153,19 +133,11 @@ void mainwindow::on_RebootButton1_clicked() {
     } else {
         player1[Text.toInt() - 1] = 9;
     }
-    ui->player1_1->setText("1: " + str[player1[0]]);
-    ui->player1_2->setText("2: " + str[player1[1]]);
-    ui->player1_3->setText("3: " + str[player1[2]]);
-    ui->player1_4->setText("4: " + str[player1[3]]);
-    ui->player1_5->setText("5: " + str[player1[4]]);
-    ui->player1_6->setText("6: " + str[player1[5]]);
-    ui->player1_7->setText("7: " + str[player1[6]]);
-    ui->player1_8->setText("8: " + str[player1[7]]);
+    Updateplayer1UI();
 }
 
 void mainwindow::on_RebootButton2_clicked() {
     QString Text = ui->use2->text();
-    QString str[9] = {"冰", "水", "火", "雷", "岩", "草", "风", "万能", ""};
     if (!(Text.toInt() <= 8 && Text.toInt() >= 1)) {
         ui->Warning2->setText("请输入正确的编号！");
         return;
@@ -179,14 +151,7 @@ void mainwindow::on_RebootButton2_clicked() {
     } else {
         player2[Text.toInt() - 1] = 9;
     }
-    ui->player2_1->setText("1: " + str[player2[0]]);
-    ui->player2_2->setText("2: " + str[player2[1]]);
-    ui->player2_3->setText("3: " + str[player2[2]]);
-    ui->player2_4->setText("4: " + str[player2[3]]);
-    ui->player2_5->setText("5: " + str[player2[4]]);
-    ui->player2_6->setText("6: " + str[player2[5]]);
-    ui->player2_7->setText("7: " + str[player2[6]]);
-    ui->player2_8->setText("8: " + str[player2[7]]);
+    Updateplayer2UI();
 }
 
 void mainwindow::on_p1bminus_clicked() {

@@ -28,6 +28,9 @@ private slots:
     void on_p1bminus_clicked();
     void on_p2bminus_clicked();
     void on_resetButton_clicked();
+    void ResetUI();
+    void Updateplayer1UI();
+    void Updateplayer2UI();
 
 private:
     Ui::mainwindow *ui;
