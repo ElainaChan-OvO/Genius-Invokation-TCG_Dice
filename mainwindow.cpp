@@ -14,7 +14,7 @@ mainwindow::mainwindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainwi
     ui->player1_2->setText("");
     ui->player1_3->setText("");
     ui->player1_4->setText("");
-    ui->player_1_5->setText("");
+    ui->player1_5->setText("");
     ui->player1_6->setText("");
     ui->player1_7->setText("");
     ui->player1_8->setText("");
@@ -53,7 +53,7 @@ void mainwindow::on_player1_begin_clicked() {
     ui->player1_2->setText("2: " + str[player1[1]]);
     ui->player1_3->setText("3: " + str[player1[2]]);
     ui->player1_4->setText("4: " + str[player1[3]]);
-    ui->player_1_5->setText("5: " + str[player1[4]]);
+    ui->player1_5->setText("5: " + str[player1[4]]);
     ui->player1_6->setText("6: " + str[player1[5]]);
     ui->player1_7->setText("7: " + str[player1[6]]);
     ui->player1_8->setText("8: " + str[player1[7]]);
@@ -81,7 +81,7 @@ void mainwindow::on_clearButton_clicked() {
     ui->player1_2->setText("");
     ui->player1_3->setText("");
     ui->player1_4->setText("");
-    ui->player_1_5->setText("");
+    ui->player1_5->setText("");
     ui->player1_6->setText("");
     ui->player1_7->setText("");
     ui->player1_8->setText("");
@@ -110,7 +110,7 @@ void mainwindow::on_useButton1_clicked() {
     ui->player1_2->setText("2: " + str[player1[1]]);
     ui->player1_3->setText("3: " + str[player1[2]]);
     ui->player1_4->setText("4: " + str[player1[3]]);
-    ui->player_1_5->setText("5: " + str[player1[4]]);
+    ui->player1_5->setText("5: " + str[player1[4]]);
     ui->player1_6->setText("6: " + str[player1[5]]);
     ui->player1_7->setText("7: " + str[player1[6]]);
     ui->player1_8->setText("8: " + str[player1[7]]);
@@ -157,7 +157,7 @@ void mainwindow::on_RebootButton1_clicked() {
     ui->player1_2->setText("2: " + str[player1[1]]);
     ui->player1_3->setText("3: " + str[player1[2]]);
     ui->player1_4->setText("4: " + str[player1[3]]);
-    ui->player_1_5->setText("5: " + str[player1[4]]);
+    ui->player1_5->setText("5: " + str[player1[4]]);
     ui->player1_6->setText("6: " + str[player1[5]]);
     ui->player1_7->setText("7: " + str[player1[6]]);
     ui->player1_8->setText("8: " + str[player1[7]]);

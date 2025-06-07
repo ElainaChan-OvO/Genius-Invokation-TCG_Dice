@@ -213,7 +213,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="player_1_5">
+        <widget class="QLabel" name="player1_5">
          <property name="font">
           <font>
            <family>Microsoft YaHei UI</family>
@@ -764,7 +764,7 @@
      <string>重置血量</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>680</x>
