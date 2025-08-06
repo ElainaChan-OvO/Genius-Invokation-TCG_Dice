@@ -32,7 +32,7 @@
       <x>320</x>
       <y>410</y>
       <width>261</width>
-      <height>25</height>
+      <height>28</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -74,7 +74,7 @@
      </font>
     </property>
     <property name="text">
-     <string>开启下一回合（清空所以元素骰子）</string>
+     <string>开启下一回合（清空所有元素骰子）</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -83,7 +83,7 @@
       <x>20</x>
       <y>410</y>
       <width>261</width>
-      <height>25</height>
+      <height>28</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -929,7 +929,7 @@
      <x>0</x>
      <y>0</y>
      <width>978</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
